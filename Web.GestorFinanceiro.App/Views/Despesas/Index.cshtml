@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Web.GestorFinanceiro.App.Models.Despesa>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card border-card shadow">
+    <div class="card-header">
+        <div class="row">
+            <div>
+                <h3>Despesas</h3>
+                <a asp-action="Create"><button type="button" class="btn btn-danger">Lançar Despesa</button></a>
+            </div> 
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="display" id="table_despesa">
+            <thead>
+                <tr>
+                    <th>
+                        Data Despesa
+                    </th>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Recorrente
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+                    <th>
+                        Valor
+                    </th>
+                    <th>
+                        Operação
+                    </th>
+                    <th>
+                        Situação
+                    </th>
+                    <th class="text-center">
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DespesaData)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomeDespesa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Recorrente)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoDespesa)
+                        </td>
+                        <td>
+                            R$ @Html.DisplayFor(modelItem => item.ValorDespesa)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.Operacao)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.Situacao)*@
+                            @Enum.GetName(typeof(Web.GestorFinanceiro.App.Models.SituacaoDespesa), item.Situacao)
+                        </td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-bars"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-action="Edit" asp-route-id="@item.DespesaId"><i class="fa-solid fa-pen"></i> Editar</a></li>
+                                    <li><a class="dropdown-item" asp-action="Details" asp-route-id="@item.DespesaId"><i class="fa-solid fa-circle-info"></i> Detalhes</a></li>
+                                    <li><a class="dropdown-item" asp-action="Delete" asp-route-id="@item.DespesaId"><i class="fa-solid fa-trash"></i> Apagar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .border-card {
+        border-radius: 15px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#table_despesa').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.2/i18n/pt-BR.json'
+            }
+        });
+    });
+</script>
+

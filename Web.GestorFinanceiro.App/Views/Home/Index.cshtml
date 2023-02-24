@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-sm-9">
+        <div class="card mb-2 shadow border-card">
+            <div class="card-body text-left">
+                <h2 id="cumprimento"> Daniel</h2>
+                <h5>Aqui está a sua dashboard! Seu saldo cadastrado é de: <b>R$19.430,00</b>.</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <div class="card shadow border-card">
+                <div class="card-header">
+                    Operações
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="d-grid gap-2">
+                                <a class="nav-link text-dark btn btn-success text-white" asp-area="" asp-controller="Despesas" asp-action="Create">Receita</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-grid gap-2">
+                                <a class="nav-link text-dark btn btn-danger text-white" asp-area="" asp-controller="Despesas" asp-action="Create">Despesa</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-sm-9">
+        <div class="card shadow border-card">
+            <div class="card-header">
+                Seus Limites e Consumos nos Cartões de Crédito
+            </div>
+            <div class="card-body">
+                <div id="chart-cartoes-credito"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div>
+            <div class="card shadow border-card">
+                <div class="card-header">
+                    Balanço Geral de Contas
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-success">Seu dinheiro: <b>R$19.430,00</b></li>
+                        <li class="list-group-item text-primary">Pago: <b>R$4.581,87</b></li>
+                        <li class="list-group-item text-danger">A pagar: <b>R$3.297,21</b></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+
+            <div class="card shadow border-card">
+                <div class="card-header">
+                    Faturas em Aberto
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Itaú Visa Click </b> R$567,04</li>
+                        <li class="list-group-item"><b>C6Bank Gold</b> R$223,10</li>
+                        <li class="list-group-item"><b>Nubank Gold </b> R$677,98</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-sm-4">
+        <div class="card shadow border-card">
+            <div class="card-header">
+                Despesas x Renda Mensal
+            </div>
+            <div class="card-body">
+                <div id="chart-despesa-renda-mensal"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="card shadow border-card">
+            <div class="card-header">
+                Gastos Atuais x Expectativa de Gastos
+            </div>
+            <div class="card-body">
+                <div id="chart-gastos-meta"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-12">
+        <div class="card shadow border-card">
+            <div class="card-header">
+                Despesas Recorrentes Cadastradas
+            </div>
+            <div class="card-body">
+                <div id="wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/home.js" asp-append-version="true"></script>

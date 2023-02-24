@@ -1,0 +1,89 @@
+﻿@model Web.GestorFinanceiro.App.Models.Despesa
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card shadow border-card">
+    <div class="card-header">
+        <h3>Detalhe da Despesa</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                Nome
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NomeDespesa)
+            </dd>
+            <dt class="col-sm-2">
+                Despesa Recorrente?
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Recorrente)
+            </dd>
+            <dt class="col-sm-2">
+                Categoria
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TipoDespesa)
+            </dd>
+            <dt class="col-sm-2">
+                Data de Despesa
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DespesaData)
+            </dd>
+            <dt class="col-sm-2">
+                Valor
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ValorDespesa)
+            </dd>
+            <dt class="col-sm-2">
+                Descrição
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DescricaoDespesa)
+            </dd>
+            <dt class="col-sm-2">
+                Última Atualização
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataCadastroAlteracao)
+            </dd>
+            <dt class="col-sm-2">
+                Operação
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Operacao)
+            </dd>
+            <dt class="col-sm-2">
+                Situação
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Situacao)
+            </dd>
+        </dl>
+        <div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <a asp-action="Index">
+                        <input type="submit" value="Voltar" class="btn btn-secondary" />
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                    <a asp-action="Editar" asp-route-id="@Model?.DespesaId">
+                        <input type="submit" value="Editar" class="btn btn-primary" />
+                    </a>
+                </div>
+            </div>
+
+
+            @* <a asp-action="Edit" asp-route-id="@Model?.DespesaId">Editar</a> |
+            <a asp-action="Index">Voltar para a Lista</a>*@
+        </div>
+    </div>
+
+</div>
+
